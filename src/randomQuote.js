@@ -1,40 +1,44 @@
 import React, { Component } from "react";
+import quoteArr from "./quote";
 
 class GetQuote extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      quote: quoteArr[randomIndex].quote,
+      author: quoteArr[randomIndex].author,
+    };
+    this.handleClick = this.handleClick.bind(this);
+    this.getRandomIndex = this.getRandomIndex.bind(this);
+  }
+
+  handleClick() {
+    const randomIndex = this.getRandomIndex();
+    this.setState({
+      quote: quoteArr[randomIndex].quote,
+      author: quoteArr[randomIndex].author,
+    });
+  }
+  getRandomIndex() {
+    let quoteArrLength = quoteArr.length;
+    return Math.floor(Math.random() * quoteArrLength);
+  }
   render() {
     return (
-      <div className="quoteContainer card">
-        <h2>Random Quote Machine</h2>
-        <div className="card">
-          <div className="card-body" id="quote-box">
-            <h4 className="card-title quote-text" id="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              sagittis consequat sagittis. Aliquam interdum efficitur tortor,
-              eget porta mi viverra efficitur.
-            </h4>
-            <p className="card-text author" id="author">
-              -Author
-            </p>
-            <div className="d-flex justify-content-around">
-              <a
-                className="btn btn-primary btn-lg"
-                href="https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="
-                role="button"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="fab fa-twitter"></i>
-              </a>
-              <button
-                className="btn btn-success btn-lg"
-                type="button"
-                id="new-quote"
-              >
-                <i className="fas fa-plus"></i>
-              </button>
-            </div>
-          </div>
-        </div>
+      <div id="quote-box">
+        <div id="text">{this.state.quote}</div>
+        <div id="author">{this.state.author}</div>
+        <button id="new-quote" onClick={this.handleClick}>
+          New Quote
+        </button>
+        <a
+          href="https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="
+          rel="noreferrer"
+          target="_blank"
+          id="tweet-quote"
+        >
+          Tweet Quote
+        </a>
       </div>
     );
   }
