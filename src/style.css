@@ -1,0 +1,53 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  width: 40rem;
+}
+.quoteContainer h2 {
+  text-align: center;
+  margin: 10px;
+}
+.quoteContainer {
+  background-color: #eeeeee;
+  width: 40.15rem;
+}
+.quote-text {
+  margin: 10px 0;
+}
+.author {
+  margin: 20px 0;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+.btn {
+  width: 50%;
+}
+.btn-primary {
+  margin-right: 1%;
+}
+.btn-success {
+  margin-left: 1%;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+a:hover {
+  color: #ffffff;
+}
+
+p {
+  font-size: 20px;
+}
